@@ -33,13 +33,13 @@ You can serve the saved model directly using MLServer, which supports models sto
 MLServer is used to serve the model saved in MLflow.
 Install MLServer with MLflow Support : pip install mlserver mlserver-mlflow
 
-# Create the model-settings.json File for MLServer
+- Create the model-settings.json File for MLServer
 Define how MLServer should load the MLflow model by creating a model-settings.json configuration file.
 
 4️⃣ Deploy the MLServer-Served Model Using KServe
 After serving the model with MLServer, you can deploy it using KServe to handle scaling and manage the model lifecycle in a Kubernetes cluster.
 Prepare the KServe InferenceService YAML, KServe uses the InferenceService resource to manage machine learning model deployments in Kubernetes.
-# Create a YAML file that defines the deployment of your model using KServe.
+- Create a YAML file that defines the deployment of your model using KServe.
 -The modelUri points to the MLflow model stored in your artifact store.
 - Adjust resources as needed based on your deployment.
 - Deploy the Model with KServe
