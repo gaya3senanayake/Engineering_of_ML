@@ -5,9 +5,7 @@ This repository consists of various Assignments that I have completed using MLfl
 - **Evidently AI**: Automate ML monitoring (can associate with mlflow), Handle data drift(feature drift, target drift, model performance monitoring)
 - **Optuna, Ray tune (python libraries)**: Automatic Hyperparameter optimization Framework, has TPE sampler(bayesian))
 - **KServe** : KServe is an open-source model serving platform for deploying and managing machine learning (ML) models in Kubernetes environments. It is designed to provide serverless, scalable, and production-ready model inference while simplifying ML model deployment.
-- **MLServer** :🔹 Purpose:
-
-MLServer is a high-performance model inference server, designed for production-ready ML model serving.
+- **MLServer** :🔹 Purpose: MLServer is a high-performance model inference server, designed for production-ready ML model serving.
 🔹 Key Features:
 ✅ Optimized for Inference – Low latency, high scalability.
 ✅ Multi-Model Support – Can serve multiple models at the same time.
