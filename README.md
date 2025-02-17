@@ -45,10 +45,10 @@ Send Prediction Request via cURL. After KServe has deployed the model, you can s
 
 🔄 Summary of the Pipeline
 
--Train and save model using MLflow
--Serve model using MLServer
--Deploy model with KServe for scalable, Kubernetes-based serving
--Send predictions via API to KServe
+- Train and save the model using MLflow
+- Serve model using MLServer
+- Deploy model with KServe for scalable, Kubernetes-based serving
+- Send predictions via API to KServe
 
 -------------------------------------------------------------------------------------------------------------------------------------------------
 ## Visualization of Results
