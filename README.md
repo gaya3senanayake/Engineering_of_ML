@@ -18,6 +18,25 @@ Can be used in Kubernetes-based deployments like KServe.
 Production-scale model serving (high-performance API for inference).
 Deploying multiple models efficiently with lower latency.
 
+### Here’s a step-by-step overview of the process when deploying a model using KServe + MLServer:
+
+1️⃣ Deploy a Machine Learning Model
+You create a model and package it in a format that MLServer supports (e.g., Scikit-learn, XGBoost, ONNX, PyTorch).
+The model is stored in a cloud storage bucket (e.g., S3, MinIO, GCS) or mounted locally.
+2️⃣ Deploy Model Using KServe
+KServe takes the model and deploys it on Kubernetes using a custom InferenceService definition.
+You specify MLServer as the runtime in the KServe YAML file.
+3️⃣ MLServer Loads and Serves the Model
+MLServer pulls the model from storage and loads it into memory.
+It exposes REST and gRPC API endpoints for inference.
+4️⃣ KServe Manages Scaling & Traffic
+KServe automatically scales the model based on incoming requests (zero-to-infinity autoscaling).
+If there’s no traffic, the model is scaled to zero to save resources.
+It also handles model versioning and A/B testing.
+5️⃣ Clients Make API Requests
+Applications or users send requests to the KServe InferenceService API.
+KServe routes the request to MLServer, which performs inference and returns predictions.
+
 ## Visualization of Results
 
 Here are some sample images from the dataset:
