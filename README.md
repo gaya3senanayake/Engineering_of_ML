@@ -18,25 +18,37 @@ Can be used in Kubernetes-based deployments like KServe.
 Production-scale model serving (high-performance API for inference).
 Deploying multiple models efficiently with lower latency.
 
-### Here’s a step-by-step overview of the process when deploying a model using KServe + MLServer:
+### End-to-End Pipeline: MLflow → MLServer → KServe 🚀
+This is a step-by-step process for building a model deployment pipeline starting from MLflow (for model training and logging), serving with MLServer (for model inference), and deploying at scale with KServe (Kubernetes-based model serving). 
+Step-by-Step Process
+1️⃣ Train & Save Model in MLflow
+First, you'll train a model and log it into MLflow, which is the central repository for model tracking and versioning.
+- The model is now saved in MLflow and is accessible via its URI (e.g., runs:/<run_id>/model)
+2️⃣ Export the MLflow Model
+You can serve the saved model directly using MLServer, which supports models stored in MLflow.
+3️⃣ Serve MLflow Model with MLServer
+MLServer is used to serve the model saved in MLflow.
+Install MLServer with MLflow Support : pip install mlserver mlserver-mlflow
+# Create the model-settings.json File for MLServer
+Define how MLServer should load the MLflow model by creating a model-settings.json configuration file.
+4️⃣ Deploy the MLServer-Served Model Using KServe
+After serving the model with MLServer, you can deploy it using KServe to handle scaling and manage the model lifecycle in a Kubernetes cluster.
+Prepare the KServe InferenceService YAML, KServe uses the InferenceService resource to manage machine learning model deployments in Kubernetes.
+# Create a YAML file that defines the deployment of your model using KServe.
+-The modelUri points to the MLflow model stored in your artifact store.
+- Adjust resources as needed based on your deployment.
+- Deploy the Model with KServe
+- To deploy this YAML file to a Kubernetes cluster with KServe.
+5️⃣ Predict with the KServe-Served Model
+Once the model is deployed using KServe, you can send a request to the exposed API.
+Send Prediction Request via cURL. After KServe has deployed the model, you can send predictions to it using cURL.
 
-1️⃣ Deploy a Machine Learning Model
-You create a model and package it in a format that MLServer supports (e.g., Scikit-learn, XGBoost, ONNX, PyTorch).
-The model is stored in a cloud storage bucket (e.g., S3, MinIO, GCS) or mounted locally.
-2️⃣ Deploy Model Using KServe
-KServe takes the model and deploys it on Kubernetes using a custom InferenceService definition.
-You specify MLServer as the runtime in the KServe YAML file.
-3️⃣ MLServer Loads and Serves the Model
-MLServer pulls the model from storage and loads it into memory.
-It exposes REST and gRPC API endpoints for inference.
-4️⃣ KServe Manages Scaling & Traffic
-KServe automatically scales the model based on incoming requests (zero-to-infinity autoscaling).
-If there’s no traffic, the model is scaled to zero to save resources.
-It also handles model versioning and A/B testing.
-5️⃣ Clients Make API Requests
-Applications or users send requests to the KServe InferenceService API.
-KServe routes the request to MLServer, which performs inference and returns predictions.
-
+🔄 Summary of the Pipeline
+Train and save model using MLflow
+Serve model using MLServer
+Deploy model with KServe for scalable, Kubernetes-based serving
+Send predictions via API to KServe
+-------------------------------------------------------------------------------------------------------------------------------------------------
 ## Visualization of Results
 
 Here are some sample images from the dataset:
