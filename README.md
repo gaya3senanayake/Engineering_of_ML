@@ -1,5 +1,9 @@
 # Engineering_of_ML
-This repository consists of various Assignments that I have completed using MLflow, Evidently, Kubeflow and deepchecks
+This repository consists of various Assignments that I have completed using MLflow, Evidently, Kubeflow and Deepchecks
+- MLflow: MLflow is an open-source platform for managing the machine learning (ML) lifecycle, developed by Databricks. It helps track, reproduce, and deploy ML models efficiently.
+- Great Expectations: Data Validation
+- Evidently AI: Automate ML monitoring (can associate with mlflow), Handle data drift(feature drift, target drift, model performance monitoring)
+- Optuna, Ray tune (python libraries: Automatic Hyperparameter optimization Framework, has TPE sampler(bayesian))
 
 ## Visualization of Results
 
